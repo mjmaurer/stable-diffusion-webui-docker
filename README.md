@@ -1,3 +1,15 @@
+TODO: docker upload pipeline:
+- Create a separate /config directory which I manage and should be copied to /data/config...
+- Create a base dockerfile that does the above and downloads all other requirements (via /services/download)
+    - it should be rebuilt if /services/download changes
+    - actually make /config not part of base image (but maybe a base2 image)
+- upload that base image to ECR
+- Make each dockerfile multi-stage with download as base
+Ideally with the above, I should only have to download the non-base changes when updating the latest on bobby
+ALTERNATIVE:
+- downlaod this repo to bobby
+- symlink the new /config dir, and just keep the models local
+
 # Stable Diffusion WebUI Docker
 
 Run Stable Diffusion on your machine with a nice UI without any hassle!
